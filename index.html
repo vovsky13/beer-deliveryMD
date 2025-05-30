@@ -225,6 +225,21 @@
       animation: bounce 0.6s ease infinite;
     }
     
+    /* Анимация пива для мобильных */
+    .beer-fill {
+      position: fixed;
+      bottom: 0;
+      left: 0;
+      width: 100%;
+      height: 0;
+      background: linear-gradient(to top, #f8b500, #f8a400, #ff9e00, #ff6b00);
+      z-index: -1;
+      border-radius: 50% 50% 0 0 / 20px 20px 0 0;
+      animation: fillBeer 15s infinite ease-in-out;
+      opacity: 0.3;
+      display: none;
+    }
+    
     /* Анимации */
     @keyframes gradientBG {
       0% {
@@ -280,6 +295,11 @@
       50% { transform: translateY(-10px); }
       100% { transform: translateY(0); }
     }
+    @keyframes fillBeer {
+      0% { height: 0%; }
+      50% { height: 50%; }
+      100% { height: 30%; }
+    }
     
     @media (max-width: 600px) {
       .beer-container {
@@ -324,10 +344,38 @@
         opacity: 1;
         transform: translateY(0);
       }
+      
+      /* Анимация пива для мобильных */
+      .beer-fill {
+        display: block;
+        animation: fillBeer 12s infinite ease-in-out;
+      }
+      
+      /* Усиление анимаций для мобильных */
+      .beer-card {
+        transform: translateY(20px);
+        animation: mobileFadeIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
+      }
+      @keyframes mobileFadeIn {
+        from {
+          opacity: 0;
+          transform: translateY(50px);
+        }
+        to {
+          opacity: 1;
+          transform: translateY(0);
+        }
+      }
+      
+      .contact a {
+        animation: none;
+      }
     }
   </style>
 </head>
 <body>
+  <div class="beer-fill"></div>
+  
   <div class="lang-toggle" onclick="toggleLang()">🇷🇺/🇷🇴</div>
 
   <div class="header">
@@ -465,4 +513,3 @@
   </script>
 </body>
 </html>
-      
