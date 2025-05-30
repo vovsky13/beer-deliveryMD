@@ -12,11 +12,13 @@
       margin: 0;
       font-family: Arial, sans-serif;
       color: white;
-      background: #0d1b2a;
       text-align: center;
       padding: 20px;
       min-height: 100vh;
       overflow-x: hidden;
+      background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
+      background-size: 400% 400%;
+      animation: gradientBG 15s ease infinite;
     }
     .lang-toggle {
       position: absolute;
@@ -115,6 +117,7 @@
       transition: transform 0.5s ease;
       cursor: pointer;
       user-select: none;
+      text-shadow: 0 0 15px rgba(255, 158, 0, 0.5);
     }
     .beer-card:hover .beer-icon {
       transform: scale(1.1);
@@ -206,6 +209,17 @@
     }
     
     /* Анимации */
+    @keyframes gradientBG {
+      0% {
+        background-position: 0% 50%;
+      }
+      50% {
+        background-position: 100% 50%;
+      }
+      100% {
+        background-position: 0% 50%;
+      }
+    }
     @keyframes slideDown {
       from {
         transform: translateY(-50px);
@@ -304,8 +318,7 @@
       
       <div class="order-buttons" id="ultimatum-buttons">
         <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn" id="viber2">Viber</a>
-        <a href="https://wa.
-          me/37378022501" target="_blank" class="order-btn" id="whatsapp2">WhatsApp</a>
+        <a href="https://wa.me/37378022501" target="_blank" class="order-btn" id="whatsapp2">WhatsApp</a>
       </div>
     </div>
   </div>
