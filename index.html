@@ -12,11 +12,9 @@
       margin: 0;
       font-family: Arial, sans-serif;
       color: white;
-      background: linear-gradient(rgba(0,0,0,0.7), rgba(0,0,0,0.7)), url('images/background.jpg') no-repeat center center fixed;
-      background-size: cover;
+      background: #0d1b2a;
       text-align: center;
       padding: 20px;
-      background-color: #0d1b2a;
       min-height: 100vh;
       overflow-x: hidden;
     }
@@ -115,10 +113,11 @@
       margin: 15px 0;
       display: block;
       transition: transform 0.5s ease;
+      cursor: pointer;
+      user-select: none;
     }
     .beer-card:hover .beer-icon {
-      transform: scale(1.2) rotate(10deg);
-      text-shadow: 0 0 15px rgba(255, 158, 0, 0.7);
+      transform: scale(1.1);
     }
     .beer-title {
       margin: 15px 0 5px;
@@ -150,6 +149,12 @@
       justify-content: center;
       gap: 10px;
       margin-top: 15px;
+      height: 0;
+      overflow: hidden;
+      transition: all 0.5s ease;
+    }
+    .order-buttons.active {
+      height: 40px;
     }
     .order-btn {
       padding: 8px 15px;
@@ -162,6 +167,12 @@
       font-weight: bold;
       flex: 1;
       max-width: 120px;
+      opacity: 0;
+      transform: translateY(20px);
+      transition: all 0.4s ease;
+    }
+    .order-buttons.active .order-btn {
+      opacity: 1;
       transform: translateY(0);
     }
     .order-btn:hover {
@@ -248,6 +259,16 @@
         padding: 5px 15px;
         top: -12px;
       }
+      .order-buttons {
+        height: auto !important;
+      }
+      .order-buttons.active {
+        height: auto !important;
+      }
+      .order-btn {
+        opacity: 1 !important;
+        transform: none !important;
+      }
     }
   </style>
 </head>
@@ -262,28 +283,29 @@
 
   <div class="beer-container">
     <div class="beer-card">
-      <div class="beer-icon">🍺</div>
+      <div class="beer-icon" onclick="toggleButtons('helios')">🍺</div>
       <h3 class="beer-title">HELIOS</h3>
       <div class="beer-type">Lager · Светлое</div>
       <div class="beer-stats">Алк. 4.5% · IBU 18</div>
       <p class="beer-desc" id="helios-desc">Освежающий светлый лагер с мягким вкусом и хмельным ароматом</p>
       
-      <div class="order-buttons">
+      <div class="order-buttons" id="helios-buttons">
         <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn" id="viber1">Viber</a>
         <a href="https://wa.me/37378022501" target="_blank" class="order-btn" id="whatsapp1">WhatsApp</a>
       </div>
     </div>
 
     <div class="beer-card">
-      <div class="beer-icon">🍻</div>
+      <div class="beer-icon" onclick="toggleButtons('ultimatum')">🍻</div>
       <h3 class="beer-title">ULTIMATUM</h3>
       <div class="beer-type">Ale · Полутемное</div>
       <div class="beer-stats">Алк. 5.0% · IBU 25</div>
       <p class="beer-desc" id="ultimatum-desc">Богатый эль с карамельными нотами и сбалансированной горчинкой</p>
       
-      <div class="order-buttons">
+      <div class="order-buttons" id="ultimatum-buttons">
         <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn" id="viber2">Viber</a>
-        <a href="https://wa.me/37378022501" target="_blank" class="order-btn" id="whatsapp2">WhatsApp</a>
+        <a href="https://wa.
+          me/37378022501" target="_blank" class="order-btn" id="whatsapp2">WhatsApp</a>
       </div>
     </div>
   </div>
@@ -291,11 +313,16 @@
   <div class="contact">
     <a href="viber://chat?number=%2B37378022501" target="_blank" id="contact-viber">Заказать в Viber</a>
     <a href="https://wa.me/37378022501" target="_blank" id="contact-whatsapp">Заказать в WhatsApp</a>
-    <a href="https://www.instagram.
-      com/marsselitaxi?igsh=ZDdmNzh4YXA5Z3E4" target="_blank" id="contact-instagram">Наш Instagram</a>
+    <a href="https://www.instagram.com/marsselitaxi?igsh=ZDdmNzh4YXA5Z3E4" target="_blank" id="contact-instagram">Наш Instagram</a>
   </div>
 
   <script>
+    // Функция переключения кнопок
+    function toggleButtons(beerId) {
+      const buttons = document.getElementById(`${beerId}-buttons`);
+      buttons.classList.toggle('active');
+    }
+
     // Языковые настройки
     const ru = {
       producerText: "ПРЯМО ОТ ПРОИЗВОДИТЕЛЯ",
@@ -358,5 +385,4 @@
   </script>
 </body>
 </html>
-      
       
