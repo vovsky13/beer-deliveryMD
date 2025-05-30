@@ -344,6 +344,20 @@
       50% { opacity: 0.9; }
       100% { opacity: 0.6; }
     }
+    @keyframes bubbleRise {
+      0% {
+        transform: translateY(0);
+        opacity: 0.6;
+      }
+      50% {
+        transform: translateY(-10px);
+        opacity: 0.8;
+      }
+      100% {
+        transform: translateY(-20px);
+        opacity: 0;
+      }
+    }
     
     @media (max-width: 600px) {
       .beer-container {
@@ -401,6 +415,30 @@
         animation: foamWave 5s infinite ease-in-out, foamBubbles 3s infinite ease-in-out;
       }
       
+      /* Эффекты пузырьков */
+      .beer-foam::before,
+      .beer-foam::after {
+        content: "";
+        position: absolute;
+        background: rgba(255, 255, 255, 0.8);
+        border-radius: 50%;
+        animation: bubbleRise 8s infinite linear;
+      }
+      .beer-foam::before {
+        width: 12px;
+        height: 12px;
+        top: 5px;
+        left: 15%;
+        animation-delay: 0s;
+      }
+      .beer-foam::after {
+        width: 8px;
+        height: 8px;
+        top: 8px;
+        left: 80%;
+        animation-delay: 1.5s;
+      }
+      
       /* Усиление анимаций для мобильных */
       .beer-card {
         transform: translateY(20px);
@@ -439,7 +477,7 @@
 
   <div class="beer-container">
     <div class="beer-card">
-      <img src="images/helios-logo.png" alt="HELIOS" class="beer-logo" onclick="toggleButtons('helios')">
+      <img src="HELIOS.jpeg" alt="HELIOS" class="beer-logo" onclick="toggleButtons('helios')">
       <h3 class="beer-title">HELIOS</h3>
       <div class="beer-type">Lager · Светлое</div>
       <div class="beer-stats">Алк. 4.5% · IBU 18</div>
@@ -452,7 +490,7 @@
     </div>
 
     <div class="beer-card">
-      <img src="images/ultimatum-logo.png" alt="ULTIMATUM" class="beer-logo" onclick="toggleButtons('ultimatum')">
+      <img src="ULTIMATUM.jpeg" alt="ULTIMATUM" class="beer-logo" onclick="toggleButtons('ultimatum')">
       <h3 class="beer-title">ULTIMATUM</h3>
       <div class="beer-type">Ale · Полутемное</div>
       <div class="beer-stats">Алк. 5.0% · IBU 25</div>
