@@ -18,7 +18,7 @@
       overflow-x: hidden;
       background: linear-gradient(-45deg, #0d1b2a, #1b263b, #415a77, #778da9);
       background-size: 400% 400%;
-      animation: gradientBG 15s ease infinite;
+      animation: gradientBG 12s ease infinite;
     }
     .lang-toggle {
       position: absolute;
@@ -33,11 +33,11 @@
       border: 1px solid #ff9e00;
       font-size: 0.9em;
       z-index: 10;
-      animation: pulse 2s infinite;
+      animation: pulse 2s infinite, bounce 3s infinite;
     }
     .lang-toggle:hover {
       background: rgba(255, 158, 0, 0.3);
-      animation: none;
+      animation: pulse 1s infinite, bounce 2s infinite;
     }
     .header {
       margin: 50px auto 20px;
@@ -47,7 +47,7 @@
       max-width: 800px;
       border: 2px solid #ff9e00;
       position: relative;
-      animation: slideDown 0.8s ease-out;
+      animation: slideDown 0.8s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .producer-badge {
       position: absolute;
@@ -66,6 +66,7 @@
     h1 {
       text-shadow: 0 2px 4px rgba(0,0,0,0.5);
       margin-top: 25px;
+      animation: glow 2s ease-in-out infinite alternate;
     }
     .price-tag {
       font-size: 1.4em;
@@ -78,7 +79,7 @@
       font-weight: bold;
       box-shadow: 0 4px 10px rgba(0,0,0,0.2);
       border: 2px solid white;
-      animation: pulse 2s infinite;
+      animation: pulse 2s infinite, bounce 3s infinite;
     }
     .beer-container {
       display: flex;
@@ -95,8 +96,8 @@
       width: 280px;
       box-shadow: 0 4px 15px rgba(0,0,0,0.3);
       border: 2px solid #ff9e00;
-      transition: all 0.4s ease;
-      animation: fadeIn 1s forwards;
+      transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       opacity: 0;
     }
     .beer-card:nth-child(1) {
@@ -106,21 +107,23 @@
       animation-delay: 0.6s;
     }
     .beer-card:hover {
-      transform: translateY(-10px) scale(1.03);
-      box-shadow: 0 10px 25px rgba(255, 158, 0, 0.3);
+      transform: translateY(-15px) scale(1.05);
+      box-shadow: 0 15px 30px rgba(255, 158, 0, 0.4);
       border-color: #ff6b00;
     }
     .beer-icon {
       font-size: 80px;
       margin: 15px 0;
       display: block;
-      transition: transform 0.5s ease;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       cursor: pointer;
       user-select: none;
       text-shadow: 0 0 15px rgba(255, 158, 0, 0.5);
+      animation: floatIcon 4s ease-in-out infinite;
     }
     .beer-card:hover .beer-icon {
-      transform: scale(1.1);
+      transform: scale(1.2) rotate(5deg);
+      animation: bounce 0.8s ease infinite;
     }
     .beer-title {
       margin: 15px 0 5px;
@@ -132,12 +135,22 @@
       font-weight: bold;
       font-size: 1.2em;
       margin: 10px 0;
+      transition: all 0.3s ease;
+    }
+    .beer-card:hover .beer-type {
+      transform: scale(1.05);
+      color: #ffd166;
     }
     .beer-stats {
       background: rgba(255, 158, 0, 0.2);
       padding: 8px;
       border-radius: 8px;
       margin: 10px 0;
+      transition: all 0.3s ease;
+    }
+    .beer-card:hover .beer-stats {
+      transform: scale(1.05);
+      background: rgba(255, 158, 0, 0.3);
     }
     .beer-desc {
       font-style: italic;
@@ -146,6 +159,7 @@
     }
     .beer-card:hover .beer-desc {
       color: #ffd166;
+      transform: translateY(-3px);
     }
     .order-buttons {
       display: flex;
@@ -154,7 +168,7 @@
       margin-top: 15px;
       height: 0;
       overflow: hidden;
-      transition: all 0.5s ease;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .order-buttons.active {
       height: 40px;
@@ -166,26 +180,27 @@
       text-decoration: none;
       border-radius: 6px;
       font-size: 0.9em;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       font-weight: bold;
       flex: 1;
       max-width: 120px;
       opacity: 0;
       transform: translateY(20px);
-      transition: all 0.4s ease;
     }
     .order-buttons.active .order-btn {
       opacity: 1;
       transform: translateY(0);
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      transition-delay: 0.1s;
     }
     .order-btn:hover {
       background: linear-gradient(45deg, #ff6b00, #ff9e00);
-      transform: translateY(-3px);
-      box-shadow: 0 5px 15px rgba(255, 107, 0, 0.4);
+      transform: translateY(-5px) scale(1.1);
+      box-shadow: 0 8px 20px rgba(255, 107, 0, 0.6);
     }
     .contact {
       margin: 30px 0;
-      animation: fadeIn 1s forwards;
+      animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       animation-delay: 0.9s;
       opacity: 0;
     }
@@ -198,14 +213,16 @@
       text-decoration: none;
       border-radius: 8px;
       font-size: 1.1em;
-      transition: all 0.3s ease;
+      transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       font-weight: bold;
       transform: translateY(0);
+      animation: pulse 2s infinite;
     }
     .contact a:hover {
       background: linear-gradient(45deg, #ff6b00, #ff9e00);
-      transform: translateY(-5px);
-      box-shadow: 0 8px 20px rgba(255, 107, 0, 0.5);
+      transform: translateY(-7px) scale(1.1);
+      box-shadow: 0 10px 25px rgba(255, 107, 0, 0.7);
+      animation: bounce 0.6s ease infinite;
     }
     
     /* Анимации */
@@ -222,7 +239,7 @@
     }
     @keyframes slideDown {
       from {
-        transform: translateY(-50px);
+        transform: translateY(-70px);
         opacity: 0;
       }
       to {
@@ -233,7 +250,7 @@
     @keyframes fadeIn {
       from {
         opacity: 0;
-        transform: translateY(20px);
+        transform: translateY(30px);
       }
       to {
         opacity: 1;
@@ -247,8 +264,21 @@
     }
     @keyframes float {
       0% { transform: translateX(-50%) translateY(0px); }
-      50% { transform: translateX(-50%) translateY(-8px); }
+      50% { transform: translateX(-50%) translateY(-10px); }
       100% { transform: translateX(-50%) translateY(0px); }
+    }
+    @keyframes bounce {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-8px); }
+    }
+    @keyframes glow {
+      from { text-shadow: 0 0 5px rgba(255, 158, 0, 0.5); }
+      to { text-shadow: 0 0 20px rgba(255, 158, 0, 0.8); }
+    }
+    @keyframes floatIcon {
+      0% { transform: translateY(0); }
+      50% { transform: translateY(-10px); }
+      100% { transform: translateY(0); }
     }
     
     @media (max-width: 600px) {
@@ -257,7 +287,7 @@
         align-items: center;
       }
       .beer-card {
-        width: 90%;
+        width: 95%;
       }
       .lang-toggle {
         top: 10px;
@@ -267,21 +297,32 @@
       }
       .header {
         margin-top: 40px;
+        padding: 15px;
       }
       .producer-badge {
         font-size: 0.8em;
         padding: 5px 15px;
         top: -12px;
       }
+      .beer-icon {
+        font-size: 70px;
+      }
+      
+      /* Исправление для мобильных - кнопки скрыты */
       .order-buttons {
-        height: auto !important;
+        height: 0;
+        overflow: hidden;
       }
       .order-buttons.active {
-        height: auto !important;
+        height: 40px;
       }
       .order-btn {
-        opacity: 1 !important;
-        transform: none !important;
+        opacity: 0;
+        transform: translateY(20px);
+      }
+      .order-buttons.active .order-btn {
+        opacity: 1;
+        transform: translateY(0);
       }
     }
   </style>
@@ -334,7 +375,27 @@
     function toggleButtons(beerId) {
       const buttons = document.getElementById(`${beerId}-buttons`);
       buttons.classList.toggle('active');
+      
+      // Закрытие других открытых кнопок
+      const allButtons = document.querySelectorAll('.order-buttons');
+      allButtons.forEach(btn => {
+        if(btn.id !== `${beerId}-buttons` && btn.classList.contains('active')) {
+          btn.classList.remove('active');
+        }
+      });
     }
+
+    // Закрытие кнопок при клике вне области
+    document.addEventListener('click', (e) => {
+      const isButton = e.target.closest('.order-buttons') || 
+                      e.target.closest('.beer-icon') ||
+                      e.target.closest('.order-btn');
+      
+      if (!isButton) {
+        const allButtons = document.querySelectorAll('.order-buttons');
+        allButtons.forEach(btn => btn.classList.remove('active'));
+      }
+    });
 
     // Языковые настройки
     const ru = {
@@ -370,6 +431,12 @@
     function toggleLang() {
       currentLang = currentLang === 'ru' ? 'ro' : 'ru';
       updateLanguage();
+      
+      // Анимация при переключении языка
+      document.querySelector('.lang-toggle').classList.add('bounce');
+      setTimeout(() => {
+        document.querySelector('.lang-toggle').classList.remove('bounce');
+      }, 1000);
     }
 
     function updateLanguage() {
