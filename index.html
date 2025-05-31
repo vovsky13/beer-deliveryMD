@@ -112,7 +112,7 @@
       border-color: #ff6b00;
     }
     
-    /* ИСПРАВЛЕНИЕ: Убрали белый фон вокруг изображений */
+    /* Контейнер для логотипа */
     .beer-logo-container {
       position: relative;
       width: 140px;
@@ -121,7 +121,7 @@
       display: flex;
       justify-content: center;
       align-items: center;
-      background: rgba(0, 0, 0, 0.5); /* Темный фон вместо белого */
+      background: rgba(0, 0, 0, 0.5);
       border-radius: 50%;
       border: 2px solid #ff9e00;
       overflow: hidden;
@@ -143,7 +143,7 @@
     .beer-card:hover .beer-logo-container {
       transform: scale(1.2) rotate(5deg);
       animation: bounce 0.8s ease infinite;
-      background: rgba(0, 0, 0, 0.7); /* Темнее при наведении */
+      background: rgba(0, 0, 0, 0.7);
       border-color: #ff6b00;
     }
     
@@ -592,9 +592,9 @@
 
   <div class="beer-container">
     <div class="beer-card">
-      <!-- ИСПРАВЛЕНИЕ: Добавлен контейнер для логотипа -->
+      <!-- Исправлен путь к изображению HELIOS -->
       <div class="beer-logo-container" onclick="toggleButtons('helios')">
-        <img src="HELIOS.jpeg" alt="HELIOS" class="beer-logo">
+        <img src="HELIOS.pgn.pgn" alt="HELIOS" class="beer-logo">
       </div>
       <h3 class="beer-title">HELIOS</h3>
       <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
@@ -609,9 +609,9 @@
     </div>
 
     <div class="beer-card">
-      <!-- ИСПРАВЛЕНИЕ: Добавлен контейнер для логотипа -->
+      <!-- Исправлен путь к изображению ULTIMATUM -->
       <div class="beer-logo-container" onclick="toggleButtons('ultimatum')">
-        <img src="ULTIMATUM.jpeg" alt="ULTIMATUM" class="beer-logo">
+        <img src="ULTIMATUM.pgn.pgn" alt="ULTIMATUM" class="beer-logo">
       </div>
       <h3 class="beer-title">ULTIMATUM</h3>
       <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
