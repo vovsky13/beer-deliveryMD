@@ -111,29 +111,49 @@
       box-shadow: 0 15px 30px rgba(255, 158, 0, 0.4);
       border-color: #ff6b00;
     }
+    
+    /* ИСПРАВЛЕНИЕ: Убрали белый фон вокруг изображений */
+    .beer-logo-container {
+      position: relative;
+      width: 140px;
+      height: 140px;
+      margin: 10px auto;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      background: rgba(0, 0, 0, 0.5); /* Темный фон вместо белого */
+      border-radius: 50%;
+      border: 2px solid #ff9e00;
+      overflow: hidden;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+      cursor: pointer;
+      box-shadow: 0 0 15px rgba(255, 158, 0, 0.5);
+      animation: floatIcon 4s ease-in-out infinite;
+    }
+    
     .beer-logo {
       width: 120px;
       height: 120px;
-      margin: 10px auto;
-      display: block;
       object-fit: contain;
-      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      cursor: pointer;
       user-select: none;
-      filter: drop-shadow(0 0 10px rgba(255, 158, 0, 0.7));
-      animation: floatIcon 4s ease-in-out infinite;
+      padding: 5px;
+      transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
-    .beer-card:hover .beer-logo {
+    
+    .beer-card:hover .beer-logo-container {
       transform: scale(1.2) rotate(5deg);
       animation: bounce 0.8s ease infinite;
+      background: rgba(0, 0, 0, 0.7); /* Темнее при наведении */
+      border-color: #ff6b00;
     }
+    
     .beer-title {
       margin: 15px 0 5px;
       font-size: 1.8em;
       color: #ff9e00;
       text-shadow: 0 0 10px rgba(255, 158, 0, 0.5);
     }
-    /* Стили для нового изображения доставки */
+    /* Стили для изображения доставки */
     .delivery-badge {
       width: 100px;
       height: auto;
@@ -273,7 +293,7 @@
       animation: foamWave 4s infinite ease-in-out;
     }
     
-    /* Стили для нового блока о термокегах */
+    /* Стили для блока о термокегах */
     .thermo-info {
       background: rgba(13, 27, 42, 0.85);
       border-radius: 15px;
@@ -453,10 +473,17 @@
         padding: 5px 15px;
         top: -12px;
       }
+      
+      /* Адаптация для лого контейнера */
+      .beer-logo-container {
+        width: 120px;
+        height: 120px;
+      }
       .beer-logo {
         width: 100px;
         height: 100px;
       }
+      
       .delivery-badge {
         width: 80px;
       }
@@ -565,9 +592,11 @@
 
   <div class="beer-container">
     <div class="beer-card">
-      <img src="HELIOS.jpeg" alt="HELIOS" class="beer-logo" onclick="toggleButtons('helios')">
+      <!-- ИСПРАВЛЕНИЕ: Добавлен контейнер для логотипа -->
+      <div class="beer-logo-container" onclick="toggleButtons('helios')">
+        <img src="HELIOS.jpeg" alt="HELIOS" class="beer-logo">
+      </div>
       <h3 class="beer-title">HELIOS</h3>
-      <!-- Добавлено изображение доставки -->
       <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
       <div class="beer-type">Lager · Светлое</div>
       <div class="beer-stats">Алк. 4.5% · IBU 18</div>
@@ -580,9 +609,11 @@
     </div>
 
     <div class="beer-card">
-      <img src="ULTIMATUM.jpeg" alt="ULTIMATUM" class="beer-logo" onclick="toggleButtons('ultimatum')">
+      <!-- ИСПРАВЛЕНИЕ: Добавлен контейнер для логотипа -->
+      <div class="beer-logo-container" onclick="toggleButtons('ultimatum')">
+        <img src="ULTIMATUM.jpeg" alt="ULTIMATUM" class="beer-logo">
+      </div>
       <h3 class="beer-title">ULTIMATUM</h3>
-      <!-- Добавлено изображение доставки -->
       <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
       <div class="beer-type">Ale · Полутемное</div>
       <div class="beer-stats">Алк. 5.0% · IBU 25</div>
@@ -601,7 +632,7 @@
     <a href="https://www.instagram.com/marsselitaxi?igsh=ZDdmNzh4YXA5Z3E4" target="_blank" id="contact-instagram">Наш Instagram</a>
   </div>
   
-  <!-- Добавленный блок о термокегах -->
+  <!-- Блок о термокегах -->
   <div class="thermo-info">
     <div class="thermo-content">
       <div class="thermo-icon">❄️</div>
@@ -627,7 +658,7 @@
     // Закрытие кнопок при клике вне области
     document.addEventListener('click', (e) => {
       const isButton = e.target.closest('.order-buttons') || 
-                      e.target.closest('.beer-logo') ||
+                      e.target.closest('.beer-logo-container') ||
                       e.target.closest('.order-btn');
       
       if (!isButton) {
