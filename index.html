@@ -133,6 +133,18 @@
       color: #ff9e00;
       text-shadow: 0 0 10px rgba(255, 158, 0, 0.5);
     }
+    /* Стили для нового изображения доставки */
+    .delivery-badge {
+      width: 100px;
+      height: auto;
+      margin: 10px auto;
+      display: block;
+      filter: drop-shadow(0 0 8px rgba(255, 158, 0, 0.6));
+      transition: all 0.4s ease;
+    }
+    .beer-card:hover .delivery-badge {
+      transform: scale(1.1) rotate(5deg);
+    }
     .beer-type {
       font-weight: bold;
       font-size: 1.2em;
@@ -386,6 +398,9 @@
         width: 100px;
         height: 100px;
       }
+      .delivery-badge {
+        width: 80px;
+      }
       
       /* Исправление для мобильных - кнопки скрыты */
       .order-buttons {
@@ -479,6 +494,8 @@
     <div class="beer-card">
       <img src="HELIOS.jpeg" alt="HELIOS" class="beer-logo" onclick="toggleButtons('helios')">
       <h3 class="beer-title">HELIOS</h3>
+      <!-- Добавлено изображение доставки -->
+      <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
       <div class="beer-type">Lager · Светлое</div>
       <div class="beer-stats">Алк. 4.5% · IBU 18</div>
       <p class="beer-desc" id="helios-desc">Освежающий светлый лагер с мягким вкусом и хмельным ароматом</p>
@@ -492,6 +509,8 @@
     <div class="beer-card">
       <img src="ULTIMATUM.jpeg" alt="ULTIMATUM" class="beer-logo" onclick="toggleButtons('ultimatum')">
       <h3 class="beer-title">ULTIMATUM</h3>
+      <!-- Добавлено изображение доставки -->
+      <img src="WebP%20Image.webp" alt="Бесплатная доставка" class="delivery-badge">
       <div class="beer-type">Ale · Полутемное</div>
       <div class="beer-stats">Алк. 5.0% · IBU 25</div>
       <p class="beer-desc" id="ultimatum-desc">Богатый эль с карамельными нотами и сбалансированной горчинкой</p>
