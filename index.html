@@ -173,21 +173,29 @@
       transition: all 0.5s cubic-bezier(0.175, 0.885, 0.32, 1.275);
     }
     .order-buttons.active {
-      height: 40px;
+      height: 50px;
     }
+    /* Круглые кнопки мессенджеров */
     .order-btn {
-      padding: 8px 15px;
+      padding: 0;
+      width: 50px;
+      height: 50px;
+      border-radius: 50%;
       background: linear-gradient(45deg, #ff9e00, #ff6b00);
       color: white;
       text-decoration: none;
-      border-radius: 6px;
       font-size: 0.9em;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
       font-weight: bold;
-      flex: 1;
-      max-width: 120px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      border: 2px solid rgba(255, 255, 255, 0.5);
       opacity: 0;
       transform: translateY(20px);
+      position: relative;
+      overflow: hidden;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
     }
     .order-buttons.active .order-btn {
       opacity: 1;
@@ -200,31 +208,86 @@
       transform: translateY(-5px) scale(1.1);
       box-shadow: 0 8px 20px rgba(255, 107, 0, 0.6);
     }
+    /* Иконки мессенджеров */
+    .order-btn::before {
+      content: "";
+      display: block;
+      width: 30px;
+      height: 30px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .viber-btn::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M23.155,13.893c-0.716-8.236-7.635-14.91-15.99-14.91C3.219-1.017-1.016,3.219-1.016,8.165c0,3.507,1.847,6.578,4.62,8.331l-1.228,4.812l5.197-1.168c1.033,0.377,2.138,0.586,3.278,0.586c8.732,0,15.809-7.077,15.809-15.809C24.016,11.103,23.686,12.479,23.155,13.893z M12.149,4.265c0.391,0,0.713,0.322,0.713,0.713s-0.322,0.713-0.713,0.713s-0.713-0.322-0.713-0.713S11.758,4.265,12.149,4.265z M8.354,4.265c0.391,0,0.713,0.322,0.713,0.713s-0.322,0.713-0.713,0.713s-0.713-0.322-0.713-0.713S7.963,4.265,8.354,4.265z M16.006,18.122c-1.68,0-3.147-0.768-4.216-1.972c-0.086-0.098-0.231-0.098-0.317,0c-1.069,1.204-2.536,1.972-4.216,1.972c-0.391,0-0.713-0.322-0.713-0.713s0.322-0.713,0.713-0.713c1.395,0,2.612-0.636,3.492-1.633c0.086-0.098,0.231-0.098,0.317,0c0.88,0.997,2.097,1.633,3.492,1.633c0.391,0,0.713,0.322,0.713,0.713S16.397,18.122,16.006,18.122z"/></svg>');
+    }
+    .whatsapp-btn::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.1,3.9C17.9,1.7,15,0.5,12,0.5c-5.3,0-9.6,4.3-9.6,9.6c0,1.7,0.4,3.4,1.3,4.9L0.4,23.4l6.7-1.8c1.5,0.8,3.2,1.3,4.9,1.3c5.3,0,9.6-4.3,9.6-9.6C22.1,9,20.9,6.1,20.1,3.9z M12,20.1c-1.4,0-2.7-0.4-3.9-1l-0.3-0.2l-3.1,0.8l0.8-3l-0.2-0.3c-0.7-1.2-1-2.5-1-3.9c0-5,4.1-9.1,9.1-9.1c2.4,0,4.7,1,6.4,2.6c1.7,1.6,2.6,3.8,2.6,6.4C21.1,16,17,20.1,12,20.1z M16.4,14.4c-0.3-0.2-1.7-0.8-2-0.9c-0.3-0.1-0.5-0.1-0.7,0.1c-0.2,0.2-0.7,0.9-0.8,1.1c-0.1,0.2-0.3,0.2-0.5,0.1c-0.2-0.1-1-0.4-1.9-1.2c-0.7-0.6-1.2-1.4-1.3-1.6c-0.1-0.2,0-0.3,0.1-0.4c0.1-0.1,0.2-0.3,0.3-0.4c0.1-0.1,0.2-0.2,0.2-0.3c0.1-0.1,0-0.3,0-0.4c0-0.1-0.3-0.8-0.5-1.1c-0.2-0.3-0.4-0.3-0.6-0.3c-0.2,0-0.4,0-0.6,0c-0.2,0-0.5,0.1-0.7,0.3c-0.2,0.2-0.9,0.9-0.9,2.2s0.9,2.5,1,2.7c0.1,0.2,1.7,2.7,4.2,3.7c0.6,0.3,1.1,0.4,1.5,0.5c0.6,0.2,1.2,0.1,1.7,0c0.5-0.1,1.7-0.7,1.9-1.4c0.2-0.7,0.2-1.3,0.2-1.4C17,14.7,16.7,14.5,16.4,14.4z"/></svg>');
+    }
     .contact {
       margin: 30px 0;
       animation: fadeIn 1s cubic-bezier(0.175, 0.885, 0.32, 1.275) forwards;
       animation-delay: 0.9s;
       opacity: 0;
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 15px;
     }
-    .contact a {
-      display: inline-block;
-      margin: 10px;
-      padding: 12px 25px;
-      background: linear-gradient(45deg, #ff9e00, #ff6b00);
-      color: white;
+    /* Круглые кнопки для контактов */
+    .contact-btn {
+      display: flex;
+      flex-direction: column;
+      align-items: center;
       text-decoration: none;
-      border-radius: 8px;
-      font-size: 1.1em;
+      color: white;
       transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
-      font-weight: bold;
-      transform: translateY(0);
-      animation: pulse 2s infinite;
+      width: 100px;
     }
-    .contact a:hover {
+    .contact-icon {
+      width: 70px;
+      height: 70px;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: linear-gradient(45deg, #ff9e00, #ff6b00);
+      margin-bottom: 8px;
+      box-shadow: 0 4px 8px rgba(0,0,0,0.3);
+      border: 2px solid rgba(255, 255, 255, 0.5);
+      position: relative;
+      overflow: hidden;
+    }
+    .contact-icon::before {
+      content: "";
+      display: block;
+      width: 40px;
+      height: 40px;
+      background-size: contain;
+      background-repeat: no-repeat;
+      background-position: center;
+    }
+    .viber-icon::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M23.155,13.893c-0.716-8.236-7.635-14.91-15.99-14.91C3.219-1.017-1.016,3.219-1.016,8.165c0,3.507,1.847,6.578,4.62,8.331l-1.228,4.812l5.197-1.168c1.033,0.377,2.138,0.586,3.278,0.586c8.732,0,15.809-7.077,15.809-15.809C24.016,11.103,23.686,12.479,23.155,13.893z M12.149,4.265c0.391,0,0.713,0.322,0.713,0.713s-0.322,0.713-0.713,0.713s-0.713-0.322-0.713-0.713S11.758,4.265,12.149,4.265z M8.354,4.265c0.391,0,0.713,0.322,0.713,0.713s-0.322,0.713-0.713,0.713s-0.713-0.322-0.713-0.713S7.963,4.265,8.354,4.265z M16.006,18.122c-1.68,0-3.147-0.768-4.216-1.972c-0.086-0.098-0.231-0.098-0.317,0c-1.069,1.204-2.536,1.972-4.216,1.972c-0.391,0-0.713-0.322-0.713-0.713s0.322-0.713,0.713-0.713c1.395,0,2.612-0.636,3.492-1.633c0.086-0.098,0.231-0.098,0.317,0c0.88,0.997,2.097,1.633,3.492,1.633c0.391,0,0.713,0.322,0.713,0.713S16.397,18.122,16.006,18.122z"/></svg>');
+    }
+    .whatsapp-icon::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M20.1,3.9C17.9,1.7,15,0.5,12,0.5c-5.3,0-9.6,4.3-9.6,9.6c0,1.7,0.4,3.4,1.3,4.9L0.4,23.4l6.7-1.8c1.5,0.8,3.2,1.3,4.9,1.3c5.3,0,9.6-4.3,9.6-9.6C22.1,9,20.9,6.1,20.1,3.9z M12,20.1c-1.4,0-2.7-0.4-3.9-1l-0.3-0.2l-3.1,0.8l0.8-3l-0.2-0.3c-0.7-1.2-1-2.5-1-3.9c0-5,4.1-9.1,9.1-9.1c2.4,0,4.7,1,6.4,2.6c1.7,1.6,2.6,3.8,2.6,6.4C21.1,16,17,20.1,12,20.1z M16.4,14.4c-0.3-0.2-1.7-0.8-2-0.9c-0.3-0.1-0.5-0.1-0.7,0.1c-0.2,0.2-0.7,0.9-0.8,1.1c-0.1,0.2-0.3,0.2-0.5,0.1c-0.2-0.1-1-0.4-1.9-1.2c-0.7-0.6-1.2-1.4-1.3-1.6c-0.1-0.2,0-0.3,0.1-0.4c0.1-0.1,0.2-0.3,0.3-0.4c0.1-0.1,0.2-0.2,0.2-0.3c0.1-0.1,0-0.3,0-0.4c0-0.1-0.3-0.8-0.5-1.1c-0.2-0.3-0.4-0.3-0.6-0.3c-0.2,0-0.4,0-0.6,0c-0.2,0-0.5,0.1-0.7,0.3c-0.2,0.2-0.9,0.9-0.9,2.2s0.9,2.5,1,2.7c0.1,0.2,1.7,2.7,4.2,3.7c0.6,0.3,1.1,0.4,1.5,0.5c0.6,0.2,1.2,0.1,1.7,0c0.5-0.1,1.7-0.7,1.9-1.4c0.2-0.7,0.2-1.3,0.2-1.4C17,14.7,16.7,14.5,16.4,14.4z"/></svg>');
+    }
+    .instagram-icon::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg>');
+    }
+    .tiktok-icon::before {
+      background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24"><path fill="white" d="M12.53.02C13.84 0 15.14.01 16.44 0c.08 1.53.63 3.09 1.75 4.17 1.12 1.11 2.7 1.62 4.24 1.79v4.03c-1.44-.05-2.89-.35-4.2-.97-.57-.26-1.1-.59-1.62-.93-.01 2.92.01 5.84-.02 8.75-.08 1.4-.54 2.79-1.35 3.94-1.31 1.92-3.58 3.17-5.91 3.21-1.43.08-2.86-.31-4.08-1.03-2.02-1.19-3.44-3.37-3.65-5.71-.02-.5-.03-1-.01-1.49.18-1.9 1.12-3.72 2.58-4.96 1.66-1.44 3.98-2.13 6.15-1.72.02 1.48-.04 2.96-.04 4.44-.99-.32-2.15-.23-3.02.37-.63.41-1.11 1.04-1.36 1.75-.21.51-.15 1.07-.14 1.61.24 1.64 1.82 3.02 3.5 2.87 1.12-.01 2.19-.66 2.77-1.61.19-.33.4-.67.41-1.06.1-1.79.06-3.57.07-5.36.01-4.03-.01-8.05.02-12.07z"/></svg>');
+    }
+    .contact-label {
+      font-size: 0.8em;
+      margin-top: 5px;
+      text-align: center;
+    }
+    .contact-btn:hover .contact-icon {
       background: linear-gradient(45deg, #ff6b00, #ff9e00);
       transform: translateY(-7px) scale(1.1);
       box-shadow: 0 10px 25px rgba(255, 107, 0, 0.7);
-      animation: bounce 0.6s ease infinite;
     }
     
     /* Анимация пива для мобильных */
@@ -396,9 +459,11 @@
         overflow: hidden;
       }
       .order-buttons.active {
-        height: 40px;
+        height: 50px;
       }
       .order-btn {
+        width: 45px;
+        height: 45px;
         opacity: 0;
         transform: translateY(20px);
       }
@@ -458,8 +523,19 @@
         }
       }
       
-      .contact a {
-        animation: none;
+      .contact {
+        gap: 10px;
+      }
+      .contact-icon {
+        width: 60px;
+        height: 60px;
+      }
+      .contact-icon::before {
+        width: 30px;
+        height: 30px;
+      }
+      .contact-label {
+        font-size: 0.7em;
       }
     }
   </style>
@@ -470,7 +546,7 @@
     <div class="beer-foam"></div>
   </div>
   
-  <div class="lang-toggle" onclick="toggleLang()">🇷🇺/🇷🇴</div>
+  <div class="lang-toggle" onclick="toggleLang()">🇷🇺/🇷🇴/🇬🇧</div>
 
   <div class="header">
     <div class="producer-badge" id="producer-text">ПРЯМО ОТ ПРОИЗВОДИТЕЛЯ</div>
@@ -487,8 +563,8 @@
       <p class="beer-desc" id="helios-desc">Освежающий светлый лагер с мягким вкусом и хмельным ароматом</p>
       
       <div class="order-buttons" id="helios-buttons">
-        <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn" id="viber1">Viber</a>
-        <a href="https://wa.me/37378022501" target="_blank" class="order-btn" id="whatsapp1">WhatsApp</a>
+        <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn viber-btn" title="Viber"></a>
+        <a href="https://wa.me/37378022501" target="_blank" class="order-btn whatsapp-btn" title="WhatsApp"></a>
       </div>
     </div>
 
@@ -500,18 +576,29 @@
       <p class="beer-desc" id="ultimatum-desc">Богатый эль с карамельными нотами и сбалансированной горчинкой</p>
       
       <div class="order-buttons" id="ultimatum-buttons">
-        <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn" id="viber2">Viber</a>
-        <a href="https://wa.me/37378022501" target="_blank" class="order-btn" id="whatsapp2">WhatsApp</a>
+        <a href="viber://chat?number=%2B37378022501" target="_blank" class="order-btn viber-btn" title="Viber"></a>
+        <a href="https://wa.me/37378022501" target="_blank" class="order-btn whatsapp-btn" title="WhatsApp"></a>
       </div>
     </div>
   </div>
 
   <div class="contact">
-    <a href="viber://chat?number=%2B37378022501" target="_blank" id="contact-viber">Заказать в Viber</a>
-    <a href="https://wa.me/37378022501" target="_blank" id="contact-whatsapp">Заказать в WhatsApp</a>
-    <a href="https://www.instagram.com/marsselitaxi?igsh=ZDdmNzh4YXA5Z3E4" target="_blank" id="contact-instagram">Наш Instagram</a>
-    <!-- Новая кнопка TikTok -->
-    <a href="https://www.tiktok.com/@marselli4?_t=ZM-8xWTMNkSksQ&_r=1" target="_blank" id="contact-tiktok">Наш TikTok</a>
+    <a href="viber://chat?number=%2B37378022501" target="_blank" class="contact-btn">
+      <div class="contact-icon viber-icon"></div>
+      <span class="contact-label" id="contact-viber">Viber</span>
+    </a>
+    <a href="https://wa.me/37378022501" target="_blank" class="contact-btn">
+      <div class="contact-icon whatsapp-icon"></div>
+      <span class="contact-label" id="contact-whatsapp">WhatsApp</span>
+    </a>
+    <a href="https://www.instagram.com/marsselitaxi?igsh=ZDdmNzh4YXA5Z3E4" target="_blank" class="contact-btn">
+      <div class="contact-icon instagram-icon"></div>
+      <span class="contact-label" id="contact-instagram">Instagram</span>
+    </a>
+    <a href="https://www.tiktok.com/@marselli4?_t=ZM-8xWTMNkSksQ&_r=1" target="_blank" class="contact-btn">
+      <div class="contact-icon tiktok-icon"></div>
+      <span class="contact-label" id="contact-tiktok">TikTok</span>
+    </a>
   </div>
 
   <script>
@@ -546,11 +633,11 @@
       producerText: "ПРЯМО ОТ ПРОИЗВОДИТЕЛЯ",
       title: "Доставка пива кегами по 25 литров",
       price: "40 лей/литр · Бесплатная доставка",
-      orderViber: "Заказать в Viber",
-      orderWhatsapp: "Заказать в WhatsApp",
-      instagram: "Наш Instagram",
-      tiktok: "Наш TikTok", // Новый текст для TikTok
-      langBtn: "🇷🇺/🇷🇴",
+      contactViber: "Viber",
+      contactWhatsapp: "WhatsApp",
+      contactInstagram: "Instagram",
+      contactTiktok: "TikTok",
+      langBtn: "🇷🇺/🇷🇴/🇬🇧",
       heliosDesc: "Освежающий светлый лагер с мягким вкусом и хмельным ароматом",
       ultimatumDesc: "Богатый эль с карамельными нотами и сбалансированной горчинкой",
       viber: "Viber",
@@ -561,21 +648,38 @@
       producerText: "DIRECT DE LA PRODUCĂTOR",
       title: "Livrare de bere la KEG de 25 litri",
       price: "40 lei/litru · Livrare gratuită",
-      orderViber: "Comandă pe Viber",
-      orderWhatsapp: "Comandă pe WhatsApp",
-      instagram: "Instagram-ul nostru",
-      tiktok: "TikTok-ul nostru", // Новый текст для TikTok
-      langBtn: "🇷🇴/🇷🇺",
+      contactViber: "Viber",
+      contactWhatsapp: "WhatsApp",
+      contactInstagram: "Instagram",
+      contactTiktok: "TikTok",
+      langBtn: "🇷🇴/🇷🇺/🇬🇧",
       heliosDesc: "Lager luminos răcoritor cu gust moale și aromă de hamei",
       ultimatumDesc: "Ale bogat cu note de caramel și amărățuire echilibrată",
       viber: "Viber",
       whatsapp: "WhatsApp"
     };
 
+    const en = {
+      producerText: "DIRECT FROM THE PRODUCER",
+      title: "Beer Keg Delivery (25L)",
+      price: "40 lei/liter · Free Delivery",
+      contactViber: "Viber",
+      contactWhatsapp: "WhatsApp",
+      contactInstagram: "Instagram",
+      contactTiktok: "TikTok",
+      langBtn: "🇬🇧/🇷🇺/🇷🇴",
+      heliosDesc: "Refreshing light lager with a mild taste and hoppy aroma",
+      ultimatumDesc: "Rich ale with caramel notes and balanced bitterness",
+      viber: "Viber",
+      whatsapp: "WhatsApp"
+    };
+
     let currentLang = 'ru';
+    const languages = ['ru', 'ro', 'en'];
 
     function toggleLang() {
-      currentLang = currentLang === 'ru' ? 'ro' : 'ru';
+      const currentIndex = languages.indexOf(currentLang);
+      currentLang = languages[(currentIndex + 1) % languages.length];
       updateLanguage();
       
       // Анимация при переключении языка
@@ -586,7 +690,8 @@
     }
 
     function updateLanguage() {
-      const lang = currentLang === 'ru' ? ru : ro;
+      const lang = currentLang === 'ru' ? ru : 
+                  currentLang === 'ro' ? ro : en;
       
       // Обновление текстов
       document.getElementById('producer-text').innerText = lang.producerText;
@@ -594,17 +699,19 @@
       document.getElementById('price').innerText = lang.price;
       document.getElementById('helios-desc').innerText = lang.heliosDesc;
       document.getElementById('ultimatum-desc').innerText = lang.ultimatumDesc;
-      document.getElementById('contact-viber').innerText = lang.orderViber;
-      document.getElementById('contact-whatsapp').innerText = lang.orderWhatsapp;
-      document.getElementById('contact-instagram').innerText = lang.instagram;
-      document.getElementById('contact-tiktok').innerText = lang.tiktok; // Обновление TikTok
+      document.getElementById('contact-viber').innerText = lang.contactViber;
+      document.getElementById('contact-whatsapp').innerText = lang.contactWhatsapp;
+      document.getElementById('contact-instagram').innerText = lang.contactInstagram;
+      document.getElementById('contact-tiktok').innerText = lang.contactTiktok;
       document.querySelector('.lang-toggle').innerText = lang.langBtn;
       
-      // Обновление кнопок
-      document.getElementById('viber1').innerText = lang.viber;
-      document.getElementById('whatsapp1').innerText = lang.whatsapp;
-      document.getElementById('viber2').innerText = lang.viber;
-      document.getElementById('whatsapp2').innerText = lang.whatsapp;
+      // Обновление title для кнопок
+      document.querySelectorAll('.viber-btn').forEach(btn => {
+        btn.title = lang.viber;
+      });
+      document.querySelectorAll('.whatsapp-btn').forEach(btn => {
+        btn.title = lang.whatsapp;
+      });
     }
 
     // Инициализация языка при загрузке
